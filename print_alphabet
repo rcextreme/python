@@ -1,0 +1,8 @@
+#!/usr/bin/python
+print ord('L')
+
+for c in range( ord('a'), ord('z')+1):
+   if c ==  108 :
+      print "L"
+   else:
+     print chr(c)
