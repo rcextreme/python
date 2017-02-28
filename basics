@@ -3,3 +3,7 @@ In-Line Python
 # python -c 'print 1+1'
 2
 
+Run shell commands in python
+# call('ls')
+
+A Good use for python is to do file searches when the file names contain characters such as backslash.  At work we wrote a script to do this for SAS.
