@@ -54,3 +54,12 @@ Isi
 Jona
 Isi
 
+
+>>> var="jona\nisi\n"
+>>> with open('myfile','w') as f:
+...   f.write(var)
+...
+>>>
+vagrant@node1-ubuntu:~/python-challenge$ cat myfile
+jona
+isi
