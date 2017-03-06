@@ -1,6 +1,34 @@
 
-# python
 
+
+########################################### Readin
+$ cat myfile
+one
+two
+
+$ python
+>>> with open('myfile2','r') as f:
+...   f.read()
+...
+'one\ntwo\n'
+
+>>> with open('myfile2','r') as f:
+...   for line in f: print line
+...
+one
+two
+
+>>> with open('myfile2','r') as f:
+...   data=f.read()
+...
+>>> data
+'one\ntwo\n'
+>>> print data
+one
+two
+
+########################################### Writing
+# python
 >>> with open('myfile','w') as f:
 ...   f.write('Jona\n')
 ...
