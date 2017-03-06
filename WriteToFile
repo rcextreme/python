@@ -1,0 +1,28 @@
+
+# python
+
+>>> with open('myfile','w') as f:
+...   f.write('Jona\n')
+...
+>>> import subprocess
+>>> subprocess.call('cat myfile',shell=True)
+Jona
+0
+
+>>> with open('myfile','w') as f:
+...   f.write('Isi\n')
+
+>>> subprocess.call('cat myfile',shell=True)
+Isi
+0
+
+>>> with open('myfile','w') as f:
+...   f.write('Jona\n')
+
+>>> with open('myfile','a') as f:
+...   f.write('Isi\n')
+
+>>> subprocess.call('cat myfile',shell=True)
+Jona
+Isi
+
