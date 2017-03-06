@@ -1,0 +1,32 @@
+vagrant@node1-ubuntu:~/python-challenge$ python
+
+>>> squares = [1, 4, 9, 16, 25]
+>>> squares
+[1, 4, 9, 16, 25]
+
+>>> squares[0]
+1
+
+>>> squares.append(36)
+>>> squares
+[1, 4, 9, 16, 25, 36]
+
+
+
+>>> letters=['a','b','c']
+>>> letters
+['a', 'b', 'c']
+>>> len(letters)
+3
+
+>>> a,b=0,1
+>>> while b < 10:
+...  print b
+...  a,b=b,a+b
+...
+1
+1
+2
+3
+5
+8
