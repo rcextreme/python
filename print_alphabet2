@@ -4,3 +4,6 @@ import string
 str = string.ascii_lowercase
 letter = '1'
 print "\n".join(str.replace(letter,letter.upper()))
+
+# or
+print "\n".join("abcdefghijklmnopqrstuvwxyz".replace("l","L"))
