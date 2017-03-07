@@ -1,0 +1,22 @@
+#!/usr/bin/python
+
+text = "ethel staton\nraf calderon\nkelvin paten\njoe perkins\nleon cowle\n"
+
+with open('/tmp/file','w') as f:
+  f.write(text)
+
+with open('/tmp/file','r') as f:
+  lst=list(f)
+
+lst.sort()
+
+for i in range(len(lst)):
+  #strip removes the end of line characters
+  print "Name {} is {} ".format(i+1, lst[i].strip())
+
+print ""
+
+for i in range(len(lst)):
+  #splits on whitespace by default
+  firstName=lst[i].split()[0]
+  print "Name {} is {} ".format(i+1, firstName)
