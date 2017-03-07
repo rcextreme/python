@@ -1,7 +1,7 @@
 
 
 
-########################################### Readin
+########################################### Reading
 $ cat myfile
 one
 two
@@ -50,6 +50,17 @@ Isi
 >>> with open('myfile','a') as f:
 ...   f.write('Isi\n')
 
+>>> with open('/tmp/file','r') as f:
+...  data=f.read()
+...
+>>> type(data)
+<type 'str'>
+
+>>> with open('/tmp/file','r') as f:
+...   data2=list(f)
+...
+>>> print data2
+['ethel staton\n', 'raf calderon\n', 'kelvin paten\n', 'joe perkins\n', 'leon cowle\n']
 >>> subprocess.call('cat myfile',shell=True)
 Jona
 Isi
