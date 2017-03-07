@@ -1,0 +1,12 @@
+http://www.pythonforbeginners.com/concatenation/string-concatenation-and-formatting-in-python
+
+When you use the curly braces or {} operators, they serve as place-holders for the variables you would like to store inside a string. In order to pass variables to a string you must call upon the format() method.
+
+One benefit of using the format() method is that you do not have to convert integers into a string before concatenating the data. It will do that automatically for you. This is one reason why it is the preferred operator method.
+
+Fname = “John”
+Lname = “Doe”
+Age = “24”
+
+
+print “{} {} is {} years old.“ format(fname, lname, age)
