@@ -1,0 +1,37 @@
+# This example displays how to work with object in Python.
+
+$ cat student_module
+class Student:
+  def __init__(self,name,dorm):
+    self.name=name
+    self.dorm=dorm
+
+
+
+$ cat student_object.py
+#!/usr/bin/python
+import readline
+
+from student_module  import Student
+
+students=[]
+for i in range(3):
+  name = raw_input("enter name: ")
+  dorm = raw_input("enter dorm: ")
+  students.append(Student(name,dorm))
+
+for student in students:
+  print "student: {} dorm: {}".format(student.name, student.dorm)
+  
+
+$ ./student_object.py
+enter name: raf
+enter dorm: commons
+enter name: gle
+enter dorm: penn
+enter name: ari
+enter dorm: cherry
+
+student: raf dorm: commons
+student: gle dorm: penn
+student: ari dorm: cherry
