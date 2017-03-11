@@ -1,0 +1,23 @@
+#!/usr/bin/python
+
+class Dictionary:
+
+  def __init__(self):
+    self.words=set()
+
+  def load(self,dictionary):
+    file=open(dictionary,"r")
+    for line in file:
+      self.words.add(line.rstrip("\n"))
+    file.close()
+    return True
+
+  def check(self,word):
+    return word.lower() in self.words
+
+
+mydict=Dictionary()
+mydict.load('dictionary_file')
+
+result=mydict.check('house')
+print result
