@@ -1,0 +1,17 @@
+# This is the best way to iterate over elements in a string
+# you can't do something like "while s[i] != non" because python tests the end of the string
+
+
+$ python
+>>> s = raw_input('enter ')
+enter hello
+>>> i=0
+>>> while i < len(s):
+...   s[i]
+...   i+=1
+...
+'h'
+'e'
+'l'
+'l'
+'o'
