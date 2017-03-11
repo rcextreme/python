@@ -7,7 +7,6 @@ class Student:
     self.dorm=dorm
 
 
-
 $ cat student_object.py
 #!/usr/bin/python
 import readline
