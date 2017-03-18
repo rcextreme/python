@@ -1,0 +1,27 @@
+#!/usr/bin/python
+
+
+bdayHash={'raf':"08/01/98", 'Jen':"08/03/76"}
+
+print "I know the birth days of:"
+for  k in bdayHash.keys():
+  print k
+
+request = raw_input(">>> Who's birthday do you want to look up? ")
+
+
+while True:
+  
+  if request not in bdayHash:
+    print "{} is not in the list. enter new value ".format(request)
+    request = raw_input(">>> Who's birthday do you want to look up? ")
+    
+  else:
+    print "{} was born in {}".format(request,bdayHash[request])
+    break
+
+
+
+
+  
+  
