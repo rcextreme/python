@@ -1,0 +1,81 @@
+
+
+
+## This is not an RE. You can use simple string methods to perform actions on a string
+## however you're limited in the actions you can perrom
+>>> s = '100 NORTH MAIN ROAD'
+>>> s.replace('ROAD', 'RD.')                ①
+'100 NORTH MAIN RD.'
+
+### Doing substitutions with REGEx
+>>> s = '100 NORTH BROAD ROAD'
+>>> import re                               ④
+>>> re.sub('ROAD$', 'RD.', s)               ⑤
+'100 NORTH BROAD RD.'
+
+
+### this example displays use of a raw string.  it means "do not escape characters".  This is required because
+### in python strings, backslaches '\' must be escaped. You can avoid this in a raw string.
+>>> s = '100 BROAD ROAD APT. 3'
+>>> re.sub(r'\bROAD\b', 'RD.', s)  ④
+'100 BROAD RD. APT 3'
+
+#### a straight forward match
+>>> import re
+>>> pattern = '^M?M?M?$'        ①
+>>> re.search(pattern, 'M')     ②
+
+>>> pattern = '^M?M?M?(CM|CD|D?C?C?C?)$'  ①
+>>> re.search(pattern, 'MMMCCC')          ④
+<_sre.SRE_Match object at 010748A8>
+
+
+
+#### Verbose Regex:  This is a feature Python allows.  It ignores spaces and comments.  It lets you do 
+#### something pretty like this.  Notice you need to passed the 're.VERBOSE' argument to enable this feature.
+
+>>> pattern = '''
+    ^                   # beginning of string
+    M{0,3}              # thousands - 0 to 3 Ms
+    (CM|CD|D?C{0,3})    # hundreds - 900 (CM), 400 (CD), 0-300 (0 to 3 Cs),
+                        #            or 500-800 (D, followed by 0 to 3 Cs)
+    (XC|XL|L?X{0,3})    # tens - 90 (XC), 40 (XL), 0-30 (0 to 3 Xs),
+                        #        or 50-80 (L, followed by 0 to 3 Xs)
+    (IX|IV|V?I{0,3})    # ones - 9 (IX), 4 (IV), 0-3 (0 to 3 Is),
+                        #        or 5-8 (V, followed by 0 to 3 Is)
+    $                   # end of string
+    '''
+>>> re.search(pattern, 'M', re.VERBOSE)                 ①
+<_sre.SRE_Match object at 0x008EEB48>
+>>> re.search(pattern, 'MCMLXXXIX', re.VERBOSE)         ②
+<_sre.SRE_Match object at 0x008EEB48>
+
+
+>>> phonePattern = re.compile(r'(\d{3})\D*(\d{3})\D*(\d{4})\D*(\d*)$')  ①
+>>> phonePattern.search('work 1-(800) 555.1212 #1234').groups()         ②
+('800', '555', '1212', '1234')
+
+
+>>> phonePattern = re.compile(r'''
+                # don't match beginning of string, number can start anywhere
+    (\d{3})     # area code is 3 digits (e.g. '800')
+    \D*         # optional separator is any number of non-digits
+    (\d{3})     # trunk is 3 digits (e.g. '555')
+    \D*         # optional separator
+    (\d{4})     # rest of number is 4 digits (e.g. '1212')
+    \D*         # optional separator
+    (\d*)       # extension is optional and can be any number of digits
+    $           # end of string
+    ''', re.VERBOSE)
+>>> phonePattern.search('work 1-(800) 555.1212 #1234').groups()  ①
+('800', '555', '1212', '1234')
+>>> phonePattern.search('800-555-1212')                          ②
+('800', '555', '1212', '')
+①	Other than being spread out over multiple lines, this is exactly the same regular expression as the last step, so it’s no surprise that it parses the same inputs.
+②	Final sanity check. Yes, this still works. You’re done.
+
+
+
+
+## Reference
+http://www.diveintopython3.net/regular-expressions.html
