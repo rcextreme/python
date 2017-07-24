@@ -1,0 +1,10 @@
+'''
+comment1
+comment2
+comment3
+'''
+
+
+#  The three quotes allow you to do a multiline string
+#  Since this string is not assigned to anything python ignores it.
+#  So this is a trick to creating a multi-line comment
